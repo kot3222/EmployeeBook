@@ -10,7 +10,7 @@ public class EmployeeRepository {
     private Employee[] employees = new Employee[10];
     private int index = 0;
 
-    public void init(){
+    public void init() {
 
     }
 
@@ -70,7 +70,7 @@ public class EmployeeRepository {
 
     public Employee[] findAllByName(String name) {
         return null;
-        }
+    }
 
     public Employee[] findAll() {
         int count = 0;

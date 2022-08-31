@@ -4,7 +4,7 @@ import input.Input;
 import model.Employee;
 import service.EmployeeService;
 
-public class FindAllAction implements EmployeeAction{
+public class FindAllAction implements EmployeeAction {
     @Override
     public String name() {
         return "==== Find all Employees ====";
