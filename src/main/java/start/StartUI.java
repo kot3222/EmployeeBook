@@ -43,7 +43,6 @@ public class StartUI {
                 new ExitProgramAction()
         };
 
-
         new StartUI().init(input, employeeService, actions);
     }
 }
