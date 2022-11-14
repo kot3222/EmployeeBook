@@ -1,6 +1,6 @@
 package service;
 
-import dto.EmployeeDto;
+import input.dto.EmployeeDto;
 import mapper.EmployeeMapper;
 import model.Employee;
 import repository.impl.EmployeeMemRepository;

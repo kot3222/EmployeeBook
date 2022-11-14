@@ -1,6 +1,6 @@
 package mapper;
 
-import dto.EmployeeDto;
+import input.dto.EmployeeDto;
 import model.Employee;
 import util.Constants;
 

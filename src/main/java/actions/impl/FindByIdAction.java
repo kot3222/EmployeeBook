@@ -1,7 +1,7 @@
 package actions.impl;
 
 import actions.EmployeeAction;
-import dto.EmployeeDto;
+import input.dto.EmployeeDto;
 import input.Input;
 import service.EmployeeService;
 

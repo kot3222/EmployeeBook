@@ -1,6 +1,6 @@
 package sort;
 
-import dto.EmployeeDto;
+import input.dto.EmployeeDto;
 
 import java.util.Comparator;
 
