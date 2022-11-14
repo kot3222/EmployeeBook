@@ -1,5 +1,6 @@
-package actions;
+package actions.impl;
 
+import actions.EmployeeAction;
 import input.Input;
 import model.Employee;
 import service.EmployeeService;

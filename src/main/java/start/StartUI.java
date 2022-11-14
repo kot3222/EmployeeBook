@@ -1,11 +1,12 @@
 package start;
 
 import actions.*;
+import actions.impl.*;
 import input.ConsoleInput;
 import input.Input;
+import mapper.EmployeeMapper;
+import repository.impl.EmployeeMemRepository;
 import service.EmployeeService;
-
-import java.util.Scanner;
 
 public class StartUI {
 
@@ -26,7 +27,7 @@ public class StartUI {
     }
 
     private void showMenu(EmployeeAction[] employeeAction) {
-        System.out.println("Welcone. It is menu");
+        System.out.println("Welcome. It is menu");
         for (int index = 0; index < employeeAction.length; index++) {
             System.out.println(index + ". " + employeeAction[index].name());
         }
@@ -34,12 +35,17 @@ public class StartUI {
 
     public static void main(String[] args) {
         Input input = new ConsoleInput();
-        EmployeeService employeeService = new EmployeeService();
+        EmployeeService employeeService = new EmployeeService(new EmployeeMemRepository(), new EmployeeMapper());
 
         EmployeeAction[] actions = {
                 new CreateAction(),
-                new FindAllAction(),
+                new UpdateAction(),
                 new DeleteAction(),
+                new FindAllAction(),
+                new FindByIdAction(),
+                new FindByIntervalDateAction(),
+                new FindByNameAction(),
+                new SortedByOrderAction(),
                 new ExitProgramAction()
         };
 
