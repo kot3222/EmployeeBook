@@ -15,7 +15,7 @@ public class FindByIdAction implements  EmployeeAction{
 
     @Override
     public boolean execute(Input input, EmployeeService employeeService) {
-        long id = input.askLong("Enter id");
+        long id = input.askLong("Enter id: ");
         Optional<EmployeeDto> employee = employeeService.findById(id);
         if (employee.isPresent()) {
             System.out.println(employee.get());

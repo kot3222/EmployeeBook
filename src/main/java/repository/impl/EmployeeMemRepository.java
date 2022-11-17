@@ -28,7 +28,7 @@ public class EmployeeMemRepository implements Repository<Long, Employee> {
         long id =generateId();
         employee.setId(generateId());
         store.add(employee);
-        log.info("Пользователь с id - {} сохранен.", id);
+        log.info("User with id ,", id);
         return employee;
     }
 
@@ -77,7 +77,7 @@ public class EmployeeMemRepository implements Repository<Long, Employee> {
                 .collect(Collectors.toList());
     }
 
-    private int indexOf(long id) {
+    private int indexOf(Long id) {
         return IntStream.range(0, store.size())
                 .filter(index -> store.get(index).getId() == id)
                 .findFirst()

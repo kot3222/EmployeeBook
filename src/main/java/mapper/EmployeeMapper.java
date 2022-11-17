@@ -31,6 +31,19 @@ public class EmployeeMapper {
     }
 
     /**
+     * Преобразует  employeedto в сущность  entity.
+     * @param employeeDto dto
+     * @return entity
+     */
+    public Employee fromEmployeeDtoToEmployeeEntity (EmployeeDto employeeDto) {
+        return Employee.builder()
+                .name(employeeDto.getName())
+                .city(employeeDto.getCity())
+                .created(LocalDateTime.now())
+                .build();
+    }
+
+    /**
      * Парсим строку в дату.
      * @param date строка представленная датой
      * @return дата

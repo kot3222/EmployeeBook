@@ -2,6 +2,7 @@ package actions.impl;
 
 import actions.EmployeeAction;
 import input.Input;
+import input.dto.EmployeeDto;
 import model.Employee;
 import service.EmployeeService;
 
@@ -16,7 +17,7 @@ public class UpdateAction implements EmployeeAction{
         long id = input.askLong("Enter id: ");
         String name = input.askStr("Enter name: ");
         String city = input.askStr("Enter city: ");
-        if(employeeService.update(id, new Employee(name,city))) {
+        if(employeeService.update(id, new EmployeeDto(name,city))) {
             System.out.println("Successfully");
         } else {
             System.out.println("Unsuccessfully");

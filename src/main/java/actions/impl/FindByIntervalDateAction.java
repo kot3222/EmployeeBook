@@ -4,6 +4,7 @@ import actions.EmployeeAction;
 import input.Input;
 import service.EmployeeService;
 import util.Constants;
+import util.OutputUtil;
 
 import java.time.format.DateTimeParseException;
 
@@ -20,8 +21,7 @@ public class FindByIntervalDateAction implements EmployeeAction {
         String start = input.askStr("Enter start date: ");
         String end = input.askStr("Enter end date: ");
         try {
-            employeeService.findAllByIntervalDate(start,end)
-                    .forEach(System.out::println);
+            OutputUtil.print(employeeService.findAllByIntervalDate(start,end));
         } catch (DateTimeParseException exception) {
             System.out.println("Incorrect date format, Repeat please.");
         }

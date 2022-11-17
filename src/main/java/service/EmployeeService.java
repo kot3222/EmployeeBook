@@ -1,9 +1,10 @@
 package service;
 
 import input.dto.EmployeeDto;
+import lombok.RequiredArgsConstructor;
 import mapper.EmployeeMapper;
 import model.Employee;
-import repository.impl.EmployeeMemRepository;
+import repository.Repository;
 import sort.EmployeeComparatorAsc;
 import sort.EmployeeComparatorDesk;
 import sort.Ordered;
@@ -15,25 +16,19 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@RequiredArgsConstructor
 public class EmployeeService {
 
-    private final EmployeeMemRepository employeeMemRepository;
+    private final Repository<Long, Employee> employeeMemRepository;
 
     private final EmployeeMapper employeeMapper;
 
-
-    public EmployeeService(EmployeeMemRepository employeeMemRepository, EmployeeMapper employeeMapper) {
-        this.employeeMemRepository = employeeMemRepository;
-        this.employeeMapper = employeeMapper;
-        employeeMemRepository.init();
+    public boolean save(EmployeeDto employee) {
+        return employeeMemRepository.save(employeeMapper.fromEmployeeDtoToEmployeeEntity(employee)).getId() != 0;
     }
 
-    public boolean save(Employee employee) {
-        return employeeMemRepository.save(employee).getId() != 0;
-    }
-
-    public boolean update(long id, Employee employee) {
-        return employeeMemRepository.update(id, employee);
+    public boolean update(long id, EmployeeDto employee) {
+        return employeeMemRepository.update(id, employeeMapper.fromEmployeeDtoToEmployeeEntity(employee));
     }
 
     public boolean delete(long id) {
